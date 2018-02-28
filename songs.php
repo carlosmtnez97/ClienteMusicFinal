@@ -28,21 +28,25 @@
 							btn.appendChild(t);
 							node.appendChild(textnode);
 							node.appendChild(btn);
-							document.getElementById('songList').appendChild(node)
+							document.getElementById('songList').appendChild(node);
+							/*btn.setAttribute("onclick", "delete()");
+							btn.onclick = "delete()"*/
 
 						});
     				}	
 				}
 			}
+
+			function delete(){
+
+			}
+
 		
 
 			function GoCreateSongs(){
 				window.location.href = "http://localhost/ClienteAppMusica/createSongs.php";
 			}	
-			function GoLists(){
-				window.location.href = "http://localhost/ClienteAppMusica/lists.php";
-
-			}
+			
 
 			showUsers();
 
@@ -76,7 +80,7 @@
 
 		<button type="button" class="btn btn-primary " onclick="GoCreateSongs()">Create song</button>
 		
-		<button type="button" class="btn btn-primary " onclick="GoLists()">Create list</button>
+	
 
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
