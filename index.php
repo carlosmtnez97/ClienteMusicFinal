@@ -17,18 +17,16 @@
 				// Preparar respuesta
 				connection.onreadystatechange = response;
 				// Petición HTTP con POST
-				connection.open('GET', 'http://localhost/appmusicfinal/public/index.php/users/login.json?username=' + username + '&password=' + userpass);
+				connection.open('GET', 'http://localhost/MusicFinal/public/index.php/users/login.json?username=' + username + '&password=' + userpass);
 			
-				// Cabecera de la petición
-				//connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				// Envío
+				
 				connection.send();
 			}
 			function response(){
 				if (connection.readyState == 4) {
 					var response = JSON.parse(connection.responseText);
 					if (response.code == 200){
-					location.href ="http://localhost/ClienteAppMusica/songs.php";
+					location.href ="http://localhost/ClienteMusicFinal/songs.php";
 				
 					} else if (response.code == 400 || response.code == 500 ){
 					document.getElementById('code').innerHTML = response.code;
@@ -40,12 +38,12 @@
 			}
 		</script>
 		<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">			
-		<link rel="stylesheet" href="css/bootstrap.css">	
+		
 	
 
 		<style>
 			body{
-				margin-left: 40%;
+				margin-left: 10px;
 			}
 			.form-control{
 				width: 200px;
@@ -69,7 +67,7 @@
 		<input type="password" class="form-control" id="password" placeholder="Password">
 		<button onclick='ajax()' class="btn btn-primary active"">Enviar</button>
 	
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		
+
 	</body>
 </html>

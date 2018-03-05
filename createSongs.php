@@ -3,7 +3,7 @@
 	<head>
 		<title>Create song</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">			
-		<link rel="stylesheet" href="css/bootstrap.css">	
+		
 	
 
 		<script type="text/javascript">
@@ -12,8 +12,6 @@
 				var artist = document.getElementById('artist').value;
 				var url = document.getElementById('url').value;
 				//var title = $("#title").val();
-
-
 				console.log(title);
 				console.log(artist);
 				console.log(url);
@@ -24,9 +22,8 @@
 				// Preparar respuesta
 				connection.onreadystatechange = response;
 				// Petición HTTP con POST
-				connection.open('POST', 'http://localhost/appmusicfinal/public/index.php/songs/create.json');
+				connection.open('POST', 'http://localhost/MusicFinal/public/index.php/songs/create.json');
 				
-
 				// Cabecera de la petición
 				connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				// Envío
@@ -36,7 +33,7 @@
 				if (connection.readyState == 4) {
 					var response = JSON.parse(connection.responseText);
 					if (response.code == 200){
-					location.href ="http://localhost/ClienteAppMusica/songs.php";
+					location.href ="http://localhost/ClienteMusicFinal/songs.php";
 					} else if (response.code == 400 || response.code == 500 ){
 					document.getElementById('code').innerHTML = response.code;
 					document.getElementById('message').innerHTML = response.message;
@@ -48,7 +45,7 @@
 
 		<style>
 			body{
-				margin-left: 40%;
+				margin-left: 10px;
 			}
 			.form-control{
 				width: 200px;
@@ -70,9 +67,6 @@
 		<input type="text" class="form-control" id="url" placeholder="URL">
 		
 		<button onclick='ajax()' class="btn btn-primary active"">Create</button>
-
-
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		
 	</body>
 </html>

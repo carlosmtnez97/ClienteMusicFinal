@@ -3,17 +3,13 @@
 	<head>
 		<title>Canciones</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">			
-		<link rel="stylesheet" href="css/bootstrap.css">	
+		
 	
 		<script type="text/javascript">
-
-
 			function showUsers(){
 				var songs = new XMLHttpRequest();
-
-				songs.open('GET', 'http://localhost/appmusicfinal/public/index.php/songs/songs.json');
+				songs.open('GET', 'http://localhost/MusicFinal/public/index.php/songs/songs.json');
 				songs.send();
-
 				songs.onreadystatechange = function() {
     				if(songs.readyState == 4){
         				console.log("connection  == 4 ");
@@ -21,40 +17,24 @@
 						console.log(response);
 						response.forEach(function(a){
 							console.log("Element " + a["title"]);
-							var node = document.createElement("LI");  
-							var btn = document.createElement("BUTTON");
-							var textnode = document.createTextNode(a["title"]); 
-							var t = document.createTextNode("Eliminar");      
-							btn.appendChild(t);
-							node.appendChild(textnode);
-							node.appendChild(btn);
-							document.getElementById('songList').appendChild(node);
-							/*btn.setAttribute("onclick", "delete()");
-							btn.onclick = "delete()"*/
-
+							
+							document.getElementById('songList').innerHTML += "<li>"+ a["title"] +"</li>";
+							
 						});
     				}	
 				}
 			}
-
-			function delete(){
-
-			}
-
-		
-
+			
 			function GoCreateSongs(){
-				window.location.href = "http://localhost/ClienteAppMusica/createSongs.php";
+				window.location.href = "http://localhost/ClienteMusicFinal/createSongs.php";
 			}	
 			
-
 			showUsers();
-
 		</script>
 	
 		<style>
 			body{
-				margin-left: 40%;
+				margin-left: 10px;
 			}
 			p{
 				width: 200px;
@@ -82,7 +62,6 @@
 		
 	
 
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		
 	</body>
 </html>
